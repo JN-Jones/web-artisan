@@ -14,13 +14,16 @@ $(document).ready(function() {
                                 terminal.setWorking(true);
                         },
                         data: {
-                                cmd: data
+                                cmd: data,
+                                _token: token
                         }
                 }).done(function(msg) {
                         terminal.print($(msg));
                         terminal.setWorking(false);
                 }).fail(function(jqXHR, textStatus) {
 					terminal.print(textStatus);
+					terminal.print("Status: "+jqXHR.statusCode()+" "+jqXHR.responseText);
+					terminal.print(base_url+"run");
 					terminal.setWorking(false);
 				});
         };
@@ -33,7 +36,8 @@ $(document).ready(function() {
                                 terminal.setWorking(true);
                         },
                         data: {
-                                password: pass
+                                password: pass,
+                                _token: token
                         }
                 }).done(function(msg) {
                         console.log(msg);
@@ -41,6 +45,7 @@ $(document).ready(function() {
                         terminal.setWorking(false);
                 }).fail(function(jqXHR, textStatus) {
 					terminal.print(textStatus);
+					terminal.print("Status: "+jqXHR.statusCode()+" "+jqXHR.responseText);
 					terminal.setWorking(false);
 				});
         };        
