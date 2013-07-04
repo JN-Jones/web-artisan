@@ -2,8 +2,12 @@
 
 A package for Laravel 4 to interact with the CLI
 
-This is a port from [oly-ir/web-artisan](https://github.com/Oly-ir/web-artisan)
+Inspired by [oly-ir/web-artisan](https://github.com/Oly-ir/web-artisan)
+
 [![Build Status](https://travis-ci.org/JN-Jones/web-artisan.png?branch=master)](https://travis-ci.org/JN-Jones/web-artisan)
+[![Latest Stable Version](https://poser.pugx.org/jones/web-artisan/v/stable.png)](https://packagist.org/packages/jones/web-artisan)
+[![Total Downloads](https://poser.pugx.org/jones/web-artisan/downloads.png)](https://packagist.org/packages/jones/web-artisan)
+[![Latest Unstable Version](https://poser.pugx.org/jones/web-artisan/v/unstable.png)](https://packagist.org/packages/jones/web-artisan)
 
 If anyone has any ideas on how to make this framework agnostic, please contact me or open a pull request.
 
