@@ -160,10 +160,12 @@ var Terminal = {
 					return;
 				}
 
-				if ($.browser.opera && !(/[\w\s:/\\\-+,.;=]/.test(character))) {
+/* Not sure why this was added, for me it works without
+				if ($.browser.opera && !(/[\w\s:/\\\-+,.;=|!\"$%&()]/.test(character))) {
 					return; // sigh.
-				}
+				} */
 
+/* We don't want to use them
 				if (this.sticky.keys.ctrl) {
 					if (letter == 'w') {
 						this.deleteWord();
@@ -178,12 +180,12 @@ var Terminal = {
 					} else if (letter == 'd') {
 						this.runCommand('logout');
 					}
-				} else {
+				} else { */
 					if (character) {
 						this.addCharacter(character);
 						e.preventDefault();
 					}
-				}
+//				}
 			}), this))
 			.bind('keydown', 'return', ifActive(function(e) { Terminal.processInputBuffer(); }))
 			.bind('keydown', 'backspace', ifActive(function(e) { e.preventDefault();	Terminal.deleteCharacter(e.shiftKey); }))

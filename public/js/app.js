@@ -21,9 +21,7 @@ $(document).ready(function() {
                         terminal.print($(msg));
                         terminal.setWorking(false);
                 }).fail(function(jqXHR, textStatus) {
-					terminal.print(textStatus);
-					terminal.print("Status: "+jqXHR.statusCode()+" "+jqXHR.responseText);
-					terminal.print(base_url+"run");
+					terminal.print("Something went wrong. Probably you entered an invalid command? If it's an error with the package, please let me know.")
 					terminal.setWorking(false);
 				});
         };
@@ -40,12 +38,10 @@ $(document).ready(function() {
                                 _token: token
                         }
                 }).done(function(msg) {
-                        console.log(msg);
                         terminal.print(msg);
                         terminal.setWorking(false);
                 }).fail(function(jqXHR, textStatus) {
-					terminal.print(textStatus);
-					terminal.print("Status: "+jqXHR.statusCode()+" "+jqXHR.responseText);
+					terminal.print("Something went wrong. Probably you entered an invalid command? If it's an error with the package, please let me know.")
 					terminal.setWorking(false);
 				});
         };        

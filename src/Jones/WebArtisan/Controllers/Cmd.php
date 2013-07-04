@@ -50,6 +50,12 @@ class Cmd extends \BaseController {
                 if ($this->checkUser()) {
 					$parts = explode(" ", Input::get('cmd'));
 					
+					if(count($parts) < 2) // We need at least 2 entries: "artisan cmd"
+					{
+					    echo '<p>Invalid command</p>';
+					    return;
+					}
+					
 					//first is "artisan" so remove it
 					unset($parts[0]);
 					
@@ -75,7 +81,7 @@ class Cmd extends \BaseController {
 					Artisan::call($cmd, $params, new Output());
                 }
                 else
-                    echo "Please login with Password";
+                    echo "<p>Please login with Password</p>";
         }
 
         private function checkUser() {
