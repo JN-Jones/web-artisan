@@ -28,8 +28,9 @@
                         </div>
                 </div>
                 <script type="text/javascript">
-                        base_url = '{{ Request::getSchemeAndHttpHost() }}/{{ Config::get('web-artisan::base_url') }}/';
+                        base_url = '{{ Request::getSchemeAndHttpHost() }}/{{ trim(Config::get('web-artisan::base_url'), "\\/") }}/';
                         token = '{{ Session::getToken() }}';
+                        debug = '{{ Config::get('app.debug') }}';
                 </script>
         </body>
 </html>

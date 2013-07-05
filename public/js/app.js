@@ -21,8 +21,21 @@ $(document).ready(function() {
                         terminal.print($(msg));
                         terminal.setWorking(false);
                 }).fail(function(jqXHR, textStatus) {
-					terminal.print("Something went wrong. Probably you entered an invalid command? If it's an error with the package, please let me know.")
 					terminal.setWorking(false);
+                	if(debug) {
+                		var response = jqXHR.responseText;
+                		if(response.substr(0, 5) == "<span")
+	                		response = response.substr(37);
+                		var obj = $.parseJSON(response);
+                		if(obj.error != null) {
+							var answer = "Error ("+obj.error.type+"): "+obj.error.message+" in "+obj.error.file+" ("+obj.error.line+")";
+						} else {
+							var answer = reponse;
+						}
+						terminal.print(answer);
+					} else {
+						terminal.print("Something went wrong. Probably you entered an invalid command? If it's an error with the package, please let me know.");
+					}
 				});
         };
         TerminalShell.commands['password'] = function(terminal,pass) {
@@ -41,8 +54,21 @@ $(document).ready(function() {
                         terminal.print(msg);
                         terminal.setWorking(false);
                 }).fail(function(jqXHR, textStatus) {
-					terminal.print("Something went wrong. Probably you entered an invalid command? If it's an error with the package, please let me know.")
 					terminal.setWorking(false);
+                	if(debug) {
+                		var response = jqXHR.responseText;
+                		if(response.substr(0, 5) == "<span")
+	                		response = response.substr(37);
+                		var obj = $.parseJSON(response);
+                		if(obj.error != null) {
+							var answer = "Error ("+obj.error.type+"): "+obj.error.message+" in "+obj.error.file+" ("+obj.error.line+")";
+						} else {
+							var answer = reponse;
+						}
+						terminal.print(answer);
+					} else {
+						terminal.print("Something went wrong. Probably you entered an invalid command? If it's an error with the package, please let me know.");
+					}
 				});
         };        
 });
