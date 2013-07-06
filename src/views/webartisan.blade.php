@@ -28,7 +28,7 @@
                         </div>
                 </div>
                 <script type="text/javascript">
-                        base_url = '{{ Request::getSchemeAndHttpHost() }}/{{ trim(Config::get('web-artisan::base_url'), "\\/") }}/';
+                        base_url = '{{ Request::getSchemeAndHttpHost() }}{{ Request::server('REQUEST_URI') }}/';
                         token = '{{ Session::getToken() }}';
                         debug = '{{ Config::get('app.debug') }}';
                 </script>
