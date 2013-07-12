@@ -6,11 +6,8 @@ use Illuminate\Support\Facades\Config,
     Illuminate\Support\Facades\Artisan,
     Illuminate\Support\Facades\Input,
     Illuminate\Support\Facades\Session,
-    Illuminate\Support\Facades\Request,
     Illuminate\Support\Facades\View,
-    Illuminate\Console\Application,
-    Illuminate\Foundation\ProviderRepository,
-    Illuminate\Filesystem\Filesystem,
+    Illuminate\Support\Facades\Lang,
     \Jones\WebArtisan\Cli\Output;
 
 class Cmd extends \BaseController {
@@ -40,10 +37,10 @@ class Cmd extends \BaseController {
                 $this->password = trim(Input::get('password'));
                 Session::put('password', $this->password);
                 if ($this->checkUser()) {
-                        echo 'You are loged in now';
+                        echo Lang::get('web-artisan::webartisan.terminal.loggedin');
                         return;
                 }
-                echo 'Password is not correct';
+                echo Lang::get('web-artisan::webartisan.terminal.wrongpw');
         }
 
         public function run() {
@@ -52,7 +49,7 @@ class Cmd extends \BaseController {
 					
 					if(count($parts) < 2) // We need at least 2 entries: "artisan cmd"
 					{
-					    echo '<p>Invalid command</p>';
+					    echo '<p>'.Lang::get('web-artisan::webartisan.terminal.invalidcmd').'</p>';
 					    return;
 					}
 					
@@ -81,7 +78,7 @@ class Cmd extends \BaseController {
 					Artisan::call($cmd, $params, new Output());
                 }
                 else
-                    echo "<p>Please login with Password</p>";
+                    echo '<p>'.Lang::get('web-artisan::webartisan.terminal.needlogin').'</p>';
         }
 
         private function checkUser() {

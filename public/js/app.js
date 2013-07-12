@@ -34,7 +34,7 @@ $(document).ready(function() {
 						}
 						terminal.print(answer);
 					} else {
-						terminal.print("Something went wrong. Probably you entered an invalid command? If it's an error with the package, please let me know.");
+						terminal.print(js_error);
 					}
 				});
         };
@@ -67,7 +67,7 @@ $(document).ready(function() {
 						}
 						terminal.print(answer);
 					} else {
-						terminal.print("Something went wrong. Probably you entered an invalid command? If it's an error with the package, please let me know.");
+						terminal.print(js_error);
 					}
 				});
         };        
