@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Session:
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Lang;
 use \Jones\WebArtisan\Cli\Output;
