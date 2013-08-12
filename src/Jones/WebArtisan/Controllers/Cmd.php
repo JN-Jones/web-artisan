@@ -71,10 +71,10 @@ class Cmd extends \BaseController {
 						}
 						else
 						{
-							$params[] = $param;
+							$params[$param] = true;
 						}
 					}
-					
+
 					Artisan::call($cmd, $params, new Output());
                 }
                 else
