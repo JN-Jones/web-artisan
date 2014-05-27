@@ -9,7 +9,8 @@ Inspired by [oly-ir/web-artisan](https://github.com/Oly-ir/web-artisan)
 [![Total Downloads](https://poser.pugx.org/jones/web-artisan/downloads.png)](https://packagist.org/packages/jones/web-artisan)
 [![Latest Unstable Version](https://poser.pugx.org/jones/web-artisan/v/unstable.png)](https://packagist.org/packages/jones/web-artisan)
 
-If anyone has any ideas on how to make this framework agnostic, please contact me or open a pull request.
+##Contributing
+If you have any suggestions or improvements feel free to create an issue or create a Pull Request.
 
 ##Installation
 
