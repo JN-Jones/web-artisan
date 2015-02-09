@@ -6,7 +6,7 @@
 
                 <link rel="stylesheet" type="text/css" href="{{ asset('packages/jones/web-artisan/css/style.css') }}" media="screen" title="Default" />
 
-                <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
                 <script type="text/javascript" src="{{ asset('packages/jones/web-artisan/js/jquery.hotkeys-0.7.9.js') }}"></script>
                 <script type="text/javascript" src="{{ asset('packages/jones/web-artisan/js/jquery.browser.js') }}"></script>
                 <script type="text/javascript" src="{{ asset('packages/jones/web-artisan/js/jquery.konami.js') }}"></script>
