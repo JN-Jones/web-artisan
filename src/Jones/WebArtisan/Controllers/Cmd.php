@@ -1,21 +1,20 @@
 <?php namespace Jones\WebArtisan\Controllers;
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Lang;
 use \Jones\WebArtisan\Cli\Output;
 use Illuminate\Console\Application as ConsoleApplication;
 use Symfony\Component\Console\Input\ArrayInput;
+use Illuminate\Routing\Controller;
 
-class Cmd extends \BaseController
+class Cmd extends Controller
 {
 	private $password = null;
 
 	public function __construct()
 	{
-		if (!Config::get('web-artisan::enable'))
+		if (!config('web-artisan.enable'))
 		{
 			throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
 		}
@@ -28,7 +27,7 @@ class Cmd extends \BaseController
 
 	public function index()
 	{
-		return View::make('web-artisan::webartisan');
+		return view('web-artisan::webartisan');
 	}
 
 	public function password()
@@ -68,7 +67,8 @@ class Cmd extends \BaseController
 
 		$app = app();
 		$app->loadDeferredProviders();
-		$artisan = ConsoleApplication::start($app);
+//		$artisan = ConsoleApplication::start($app);
+		$artisan = new ConsoleApplication($app, $app['events']);
 
 		$command = $artisan->find($cmd);
 
@@ -113,14 +113,15 @@ class Cmd extends \BaseController
 		$command->run($input, new Output());
 	}
 
-	private function checkUser() {
-		if (!in_array(@$_SERVER['REMOTE_ADDR'], Config::get('web-artisan::ips')))
+	private function checkUser()
+	{
+		if (!in_array(@$_SERVER['REMOTE_ADDR'], config('web-artisan.ips')))
 		{
 			throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
 		}
 		else
 		{		
-			$password = Config::get('web-artisan::password');
+			$password = config('web-artisan.password');
 
 			if ($password == $this->password)
 			{

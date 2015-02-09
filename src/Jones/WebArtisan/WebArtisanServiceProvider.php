@@ -18,8 +18,12 @@ class WebArtisanServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('jones/web-artisan');
-
+		$this->publishes([
+			__DIR__.'/../../config/config.php' => config_path('web-artisan.php'),
+			__DIR__.'/../../../public' => base_path('public/packages/jones/web-artisan'),
+		]);
+		$this->loadViewsFrom(__DIR__.'/../../views', 'web-artisan');
+		$this->loadTranslationsFrom(__DIR__.'/../../lang', 'web-artisan');
 		include __DIR__ . '/../../routes.php';
 	}
 
