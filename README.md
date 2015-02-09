@@ -1,10 +1,10 @@
-#Laravel 4 WebArtisan
+#Laravel 5 WebArtisan
 
-A package for Laravel 4 to interact with the CLI
+A package for Laravel 5 to interact with the CLI
 
 Inspired by [oly-ir/web-artisan](https://github.com/Oly-ir/web-artisan)
 
-[![Build Status](https://travis-ci.org/JN-Jones/web-artisan.png?branch=master)](https://travis-ci.org/JN-Jones/web-artisan)
+[![Build Status](https://travis-ci.org/JN-Jones/web-artisan.png?branch=l5)](https://travis-ci.org/JN-Jones/web-artisan)
 [![Latest Stable Version](https://poser.pugx.org/jones/web-artisan/v/stable.png)](https://packagist.org/packages/jones/web-artisan)
 [![Total Downloads](https://poser.pugx.org/jones/web-artisan/downloads.png)](https://packagist.org/packages/jones/web-artisan)
 [![Latest Unstable Version](https://poser.pugx.org/jones/web-artisan/v/unstable.png)](https://packagist.org/packages/jones/web-artisan)
@@ -20,7 +20,7 @@ Add `jones/web-artisan` as a requirement to `composer.json`:
     ...
     "require": {
         ...
-        "jones/web-artisan": "dev-master"
+        "jones/web-artisan": "dev-l5"
         ...
     },
 }
@@ -32,7 +32,7 @@ Update composer:
 $ php composer.phar update
 ```
 
-Add the provider to your `app/config/app.php`:
+Add the provider to your `config/app.php`:
 
 ```php
 'providers' => array(
@@ -46,13 +46,7 @@ Add the provider to your `app/config/app.php`:
 Publish package assets:
 
 ```
-$ php artisan asset:publish jones/web-artisan
-```
-
-(Optional) Publish package config:
-
-```
-$ php artisan config:publish jones/web-artisan
+$ php artisan vendor:publish
 ```
 
 ##Configuration
